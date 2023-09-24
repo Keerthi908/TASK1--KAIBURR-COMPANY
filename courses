@@ -1,0 +1,12 @@
+//get the courses
+	public List<Courses> getCourses()
+	{
+		
+	}
+
+
+package com.springrest.springrest.entities;
+
+public class Courses {
+
+}
