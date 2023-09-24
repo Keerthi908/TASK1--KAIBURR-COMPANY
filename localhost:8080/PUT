@@ -1,0 +1,4 @@
+@PUTMapping("/courses")
+public course addCourse(@RequestBody Course course){
+    return this.courseService.addCourse(course);
+}
