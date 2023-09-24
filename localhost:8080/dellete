@@ -1,0 +1,5 @@
+DELETE /servers/{id}
+    @DeleteMapping("/{id}")
+    public void deleteServer(@PathVariable String id) {
+        serverRepository.deleteById(id);
+    }
