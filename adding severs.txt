@@ -1,0 +1,38 @@
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/servers")
+public class ServerController {
+    @Autowired
+    private ServerRepository serverRepository;
+
+    // GET /servers
+    @GetMapping
+    public List<Server> getAllServers() {
+        return serverRepository.findAll();
+    }
+
+    // GET /servers/{id}
+    @GetMapping("/{id}")
+    public Server getServerById(@PathVariable String id) {
+        return serverRepository.findById(id)
+                .orElse(null); // Return null if not found
+    }
+
+    // POST /servers
+    @PostMapping
+    public Server createServer(@RequestBody Server server) {
+        return serverRepository.save(server);
+    }
+
+    // DELETE /servers/{id}
+    @DeleteMapping("/{id}")
+    public void deleteServer(@PathVariable String id) {
+        serverRepository.deleteById(id);
+    }
+
+    // GET /servers/find?name={name}
+    @GetMapping("/find")
