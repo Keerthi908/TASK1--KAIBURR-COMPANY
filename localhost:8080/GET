@@ -1,0 +1,14 @@
+@GetMapping("/courses/{courseID}")
+	public List<Courses> getCourses(@PathVariable String courseID)
+	{
+		return this.courseService.getCourse(long.parseLong (courseID)) {
+			Course c = null;
+			for(Course course:list)
+			{
+				if(course.getID()==courseID)
+				{
+					c = course;
+					break;
+				}
+			}
+			return c;
